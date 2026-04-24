@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Projekt Media Wszechogarniajace"
-run/main_scene="/home/lab/Downloads/MKmultimedia6/project_files/main.tscn"
+run/main_scene="uid://bhh6fgnhbljda"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
