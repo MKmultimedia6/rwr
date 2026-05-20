@@ -10,15 +10,11 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a202f"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a202f"]
-
 [sub_resource type="Sky" id="Sky_a202f"]
-sky_material = SubResource("ProceduralSkyMaterial_a202f")
 
 [sub_resource type="Environment" id="Environment_a202f"]
 background_mode = 2
 sky = SubResource("Sky_a202f")
-ambient_light_source = 2
 ambient_light_color = Color(0.9529412, 0, 0.5921569, 1)
 
 [node name="Main" type="Node3D" unique_id=363650421]
