@@ -2,15 +2,6 @@
 
 [ext_resource type="Script" uid="uid://djscs132l30ls" path="res://node_3d.gd" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://baxrov7nyqpw8" path="res://assets/hand.gltf" id="2_noarx"]
-[ext_resource type="Script" uid="uid://cnm62yr2xppbg" path="res://teleport.gd" id="3_a0tk4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
-albedo_color = Color(0.16111982, 0.084109984, 0.427529, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_jsk3o"]
-material = SubResource("StandardMaterial3D_wc5p8")
-top_radius = 0.2
-height = 0.3
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
 
@@ -24,47 +15,27 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 0.7970817, 0.69660884, 1)
 ambient_light_energy = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
-albedo_color = Color(0.35734758, 0.7676481, 0.48998392, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_noarx"]
-material = SubResource("StandardMaterial3D_noarx")
 size = Vector2(20, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
 size = Vector3(20, 0.1, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
-albedo_color = Color(0.9808933, 0.26990885, 0.9999996, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_r3fl7"]
-material = SubResource("StandardMaterial3D_a0tk4")
 size = Vector3(2, 4, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
 size = Vector3(2, 4, 5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
-albedo_color = Color(0.4392157, 0.72156864, 1, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_i5arm"]
-material = SubResource("StandardMaterial3D_r3fl7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wc5p8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
-albedo_color = Color(0.88233656, 0.8797471, 3.85046e-07, 1)
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_noarx"]
-material = SubResource("StandardMaterial3D_jka67")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a0tk4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
-albedo_color = Color(0.53224236, 0.53224236, 0.53224236, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_4arys"]
-material = SubResource("StandardMaterial3D_i5arm")
 radius = 3.0
 height = 2.0
 
@@ -79,33 +50,22 @@ script = ExtResource("1_a202f")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=945344432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-far = 55.17
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=322003518]
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=2011097120]
-visibility_range_end = 50.0
 
-[node name="LeftHandModel" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1026373055 instance=ExtResource("2_noarx")]
+[node name="LeftHandModel" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1556508551 instance=ExtResource("2_noarx")]
 transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, -0.3, 1, 0)
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=105308233]
 tracker = &"right_hand"
-script = ExtResource("3_a0tk4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1074962085]
-visibility_range_end = 50.0
 
-[node name="LeftHandModel" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=1365443085 instance=ExtResource("2_noarx")]
+[node name="LeftHandModel" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=383074188 instance=ExtResource("2_noarx")]
 transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, 0.3, 1, 0)
-
-[node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=1024499947]
-target_position = Vector3(0, 0, -10)
-
-[node name="TeleportMarker" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1600117229]
-visible = false
-mesh = SubResource("CylinderMesh_jsk3o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1854447261]
 
@@ -120,14 +80,11 @@ text = "Enter VR"
 environment = SubResource("Environment_noarx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level" unique_id=1743322101]
-transform = Transform3D(0.6560675, 0.10556847, -0.7472823, 0.047957733, 0.98233557, 0.18087834, 0.7531769, -0.15450634, 0.6394155, -7.3719263, 6.253051, 18.646301)
-light_color = Color(0.5386024, 0.5386024, 0.53860235, 1)
-light_energy = 2.73
-shadow_enabled = true
+transform = Transform3D(-0.053842407, 0.6327984, -0.7724424, 0.08404978, 0.77369136, 0.6279629, 0.99500585, -0.031112589, -0.09484397, -17.116253, 6.253051, 0.37789822)
+light_color = Color(0.29072073, 0.2907207, 0.2907207, 1)
 directional_shadow_mode = 0
 
 [node name="Floor" type="MeshInstance3D" parent="Level" unique_id=1022838255]
-visibility_range_end = 50.0
 mesh = SubResource("PlaneMesh_noarx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Floor" unique_id=1422774979]
@@ -137,7 +94,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Rectangle" type="MeshInstance3D" parent="Level" unique_id=529684797]
 transform = Transform3D(-0.6845471, 0, -0.7289686, 0, 1, 0, 0.7289686, 0, -0.6845471, 4.6032896, 2.0000002, -5.320085)
-visibility_range_end = 50.0
 mesh = SubResource("BoxMesh_r3fl7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Rectangle" unique_id=1433441417]
@@ -147,7 +103,6 @@ shape = SubResource("BoxShape3D_jka67")
 
 [node name="Box" type="MeshInstance3D" parent="Level" unique_id=1542973031]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.031889, 0.5, 5.433227)
-visibility_range_end = 50.0
 mesh = SubResource("BoxMesh_i5arm")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Box" unique_id=381986925]
@@ -157,7 +112,6 @@ shape = SubResource("BoxShape3D_wc5p8")
 
 [node name="Cylinder" type="MeshInstance3D" parent="Level" unique_id=594252182]
 transform = Transform3D(-0.5541904, -0.032168984, -0.83176816, -0.59459144, -0.68399924, 0.42261827, -0.58252394, 0.7287732, 0.35993838, -3.3309636, 0.31350923, 3.652)
-visibility_range_end = 50.0
 mesh = SubResource("CylinderMesh_noarx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Cylinder" unique_id=1328116686]
@@ -167,7 +121,6 @@ shape = SubResource("CylinderShape3D_a0tk4")
 
 [node name="Sphere" type="MeshInstance3D" parent="Level" unique_id=402784288]
 transform = Transform3D(-0.89021283, 0.45554492, 0, -0.45381144, -0.8868253, -0.08715574, -0.039703354, -0.07758716, 0.9961947, -4.530087, -0.055957437, -5.7720237)
-visibility_range_end = 50.0
 mesh = SubResource("SphereMesh_4arys")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Level/Sphere" unique_id=1806524015]
