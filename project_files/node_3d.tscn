@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://bhh6fgnhbljda"]
 
 [ext_resource type="Script" uid="uid://djscs132l30ls" path="res://node_3d.gd" id="1_a202f"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
-size = Vector3(0.1, 0.1, 0.1)
+[ext_resource type="PackedScene" uid="uid://baxrov7nyqpw8" path="res://assets/hand.gltf" id="2_noarx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_a202f"]
 
@@ -32,13 +27,17 @@ script = ExtResource("1_a202f")
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=2011097120]
-mesh = SubResource("BoxMesh_noarx")
+
+[node name="LeftHandModel" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1556508551 instance=ExtResource("2_noarx")]
+transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, -0.3, 0, 0)
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=105308233]
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1074962085]
-mesh = SubResource("BoxMesh_a0tk4")
+
+[node name="LeftHandModel" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=383074188 instance=ExtResource("2_noarx")]
+transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, 0.3, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1854447261]
 
