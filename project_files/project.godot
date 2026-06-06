@@ -15,6 +15,10 @@ run/main_scene="uid://bhh6fgnhbljda"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+XRSimulator="uid://ctltchlf2j2r4"
+
 [filesystem]
 
 import/blender/enabled=false
