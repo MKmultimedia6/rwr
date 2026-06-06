@@ -87,7 +87,7 @@ tracker = &"left_hand"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController" unique_id=2011097120]
 visibility_range_end = 50.0
 
-[node name="LeftHandModel" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1026373055 instance=ExtResource("2_noarx")]
+[node name="LeftHandModel" parent="XROrigin3D/LeftController/MeshInstance3D" unique_id=1120346060 instance=ExtResource("2_noarx")]
 transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, -0.3, 1, 0)
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=105308233]
@@ -97,7 +97,7 @@ script = ExtResource("3_a0tk4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightController" unique_id=1074962085]
 visibility_range_end = 50.0
 
-[node name="LeftHandModel" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=1365443085 instance=ExtResource("2_noarx")]
+[node name="LeftHandModel" parent="XROrigin3D/RightController/MeshInstance3D" unique_id=564450339 instance=ExtResource("2_noarx")]
 transform = Transform3D(-8.7422775e-10, -0.02, -8.7422775e-10, 0, -8.7422775e-10, 0.02, -0.02, 8.7422775e-10, 3.821371e-17, 0.3, 1, 0)
 
 [node name="TeleportRay" type="RayCast3D" parent="XROrigin3D/RightController" unique_id=1024499947]
