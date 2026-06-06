@@ -6,35 +6,35 @@ var xr_origin: XROrigin3D
 var xr_camera: XRCamera3D
 
 func _ready() -> void:
-    xr_origin = get_parent() as XROrigin3D
-    xr_camera = xr_origin.get_node("XRCamera3D") as XRCamera3D
-    marker.visible = false
-    
+	xr_origin = get_parent() as XROrigin3D
+	xr_camera = xr_origin.get_node("XRCamera3D") as XRCamera3D
+	marker.visible = false
+	
 var trigger_was_pressed := false
 
 func _process(_delta: float) -> void:
-    if ray.is_colliding():
-        marker.global_transform.origin = ray.get_collision_point()
-        marker.visible = true
-    else:
-        marker.visible = false
-        
-    var pressed := is_button_pressed("trigger_click")
+	if ray.is_colliding():
+		marker.global_transform.origin = ray.get_collision_point()
+		marker.visible = true
+	else:
+		marker.visible = false
+		
+	var pressed := is_button_pressed("trigger_click")
 
-    if pressed and not trigger_was_pressed:
-        teleport_now()
+	if pressed and not trigger_was_pressed:
+		teleport_now()
 
-    trigger_was_pressed = pressed
+	trigger_was_pressed = pressed
 
 func teleport_now() -> void:
-    if not ray.is_colliding():
-        return
-    var target: Vector3 = ray.get_collision_point()
+	if not ray.is_colliding():
+		return
+	var target: Vector3 = ray.get_collision_point()
 
-    var origin_tf := xr_origin.global_transform
-    var cam_tf := xr_camera.global_transform
-    var cam_offset := cam_tf.origin - origin_tf.origin
-    cam_offset.y = 0.0
+	var origin_tf := xr_origin.global_transform
+	var cam_tf := xr_camera.global_transform
+	var cam_offset := cam_tf.origin - origin_tf.origin
+	cam_offset.y = 0.0
 
-    origin_tf.origin = Vector3(target.x - cam_offset.x, target.y, target.z - cam_offset.z)
-    xr_origin.global_transform = origin_tf
+	origin_tf.origin = Vector3(target.x - cam_offset.x, target.y, target.z - cam_offset.z)
+	xr_origin.global_transform = origin_tf
